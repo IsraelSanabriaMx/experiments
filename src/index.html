@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Comparador</title>
+    <meta charset="utf-8">
+    <script src="./logic.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="./style.css">
+	</head>
+	<body>
+    <div>
+      <input id="search_text" type="text" onkeypress="callSearch(event)"/>
+      <button id="search_btn" onclick="callSearchFn('text')">Search</button>
+    </div>
+    <div id="categories" class="panel show">
+      <h1>Categorias</h1>
+      <button onclick="showPanel('category', 'celular')">Celulares</button>
+      <button onclick="showPanel('category', 'bocina')">Bocinas</button>
+      <button onclick="showPanel('category', 'televisor')">Televisores</button>
+    </div>
+    <div id="levels" class="panel">
+      <h1>Gama</h1>
+      <button onclick="showPanel('level', 'baja')">Baja</button>
+      <button onclick="showPanel('level', 'mediana')">Mediana</button>
+      <button onclick="showPanel('level', 'alta')">Alta</button>
+    </div>
+    <div id="prices" class="panel">
+      <h1>Precio</h1>
+      <button onclick="showPanel('price', '1000')">1000</button>
+      <button onclick="showPanel('price', '2000')">2000</button>
+      <button onclick="showPanel('price', '3000')">3000</button>
+    </div>
+    <div id="results" class="panel">
+      RESULTS
+      <button onclick="resetSearch()">Vuelve a intentar</button>
+    </div>
+	</body>
+</html>

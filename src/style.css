@@ -1,0 +1,9 @@
+.panel {
+  border: 1px solid red;
+  margin: 5px;
+  display: none;
+}
+
+.show {
+  display: block;
+}
