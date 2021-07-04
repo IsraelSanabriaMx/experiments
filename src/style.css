@@ -7,3 +7,18 @@
 .show {
   display: block;
 }
+
+.card {
+  border: 1px solid black;
+  padding: 5px;
+  margin: 5px;
+  float: left;
+  width: 30%;
+  height: auto;
+}
+
+.card_image {
+  display: block;
+  width: 300px;
+  height: auto;
+}

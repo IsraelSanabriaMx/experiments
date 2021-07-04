@@ -10,27 +10,77 @@ const MIN_LENGTH = 5;
 // el valor de la tecla ENTER
 const ENTER_KEY = 13;
 
-// TODO:
+const buildRow = (results) => {
+  let row = [];
+
+  if (results.length > 0) {
+    row = results.map((item) => (
+      `<div class="card">
+         <img src="` + item.image + `" class="card_image"/>
+         <label>` + item.name + `</label>
+         <label>` + item.storeName + `</label>
+         <label>` + item.brandName + `</label>
+         <a href="` + item.link + `" target="_blank">Link</a>
+         <label>$` + item.price + `</label>
+      </div>`
+    ));
+  }
+
+  return row.join('');
+}
+
 // llamado al api para buscar
-function search(type, params) {
-  console.log(type, params);
+const search = (type, params) => {
   showElement('results');
+
+  const results = [
+    {
+      id: 1,
+      name: 'foo',
+      image: 'https://dictionary.cambridge.org/es/images/full/mobile_noun_002_23642.jpg?version=5.0.177',
+      storeName: 'WALMART',
+      brandName: 'Iphone',
+      link: 'https://dictionary.cambridge.org/es/diccionario/ingles/cell-phone',
+      price: '250.00',
+    },
+    {
+      id: 2,
+      name: 'foo',
+      image: 'https://dictionary.cambridge.org/es/images/full/mobile_noun_002_23642.jpg?version=5.0.177',
+      storeName: 'COPPEL',
+      brandName: 'Iphone',
+      link: 'https://dictionary.cambridge.org/es/diccionario/ingles/cell-phone',
+      price: '251.00',
+    },
+    {
+      id: 3,
+      name: 'foo',
+      image: 'https://dictionary.cambridge.org/es/images/full/mobile_noun_002_23642.jpg?version=5.0.177',
+      storeName: 'LA COMER',
+      brandName: 'Iphone',
+      link: 'https://dictionary.cambridge.org/es/diccionario/ingles/cell-phone',
+      price: '252.00',
+    },
+  ];
+
+  const build = buildRow(results);
+  document.getElementById('comparator').innerHTML = build;
 }
 
 // agrega el estilo para mostrar
-function showElement(id) {
+const showElement = (id) => {
   const e = document.getElementById(id);
   e.style.display = 'block';
 }
 
 // agrega el estilo para ocultar
-function hideElement(id) {
+const hideElement = (id) => {
   const e = document.getElementById(id);
   e.style.display = 'none';
 }
 
 // función para setear los parametros y mostrar el siguiente panel
-function showPanel(type, opt) {
+const showPanel = (type, opt) => {
   // asigna el valor en su indice correspondiente
   // ejemplo: donde type es igual a 'category'
   // hace esto options['category'] = 'celular'
@@ -65,23 +115,24 @@ function showPanel(type, opt) {
 }
 
 // regresa a su valor inicial los parametros y comienza de nuevo
-function resetSearch() {
+const resetSearch = () => {
   options.category = '';
   options.level = '';
   options.price = '';
 
   showElement('categories');
   hideElement('results');
+  document.getElementById('comparator').innerHTML = '';
 }
 
-function getInputValue() {
+const getInputValue = () => {
   const param = document.getElementById('search_text').value;
 
   return param.trim();
 }
 
 // obtine el valor del input y si cumple la longitud minima llama la busqueda
-function callSearchFn(type) {
+const callSearchFn = (type) => {
   const param = getInputValue();
   if (param.length >= MIN_LENGTH) {
     search(type, param);
@@ -91,7 +142,7 @@ function callSearchFn(type) {
 }
 
 // cada que teclea en el input valida si da enter y llama a la busqueda si cumple con la longitud minima
-function callSearch(e) {
+const callSearch = (e) => {
   if (e.keyCode === 13) {
     callSearchFn('text')
   }
