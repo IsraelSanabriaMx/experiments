@@ -30,6 +30,18 @@ const searchProducts = (type, params) => {
   showElement('results');
   showElement('products');
 
+  // LLAMAR API
+  // params: {
+  //   type: type,
+  //   category: params.category,
+  //   level: params.level,
+  //   price: params.price,
+  // }
+  // fetch('/mi-api/search', params).then((products) => {
+  //    const build = buildRow(products);
+  //    document.getElementById('products').innerHTML = build;
+  //  });
+
   const products = [
     {
       id: 1,
@@ -75,6 +87,15 @@ const buildRow = (results) => {
 const search = (type, params) => {
   console.log(type, params);
   hideElement('products');
+  // LLAMAR API
+  // params: {
+  //   type: type,
+  //   product: params.product,
+  // }
+  // fetch('/mi-api/search', params).then((results) => {
+  //    const build = buildRow(results);
+  //    document.getElementById('comparator').innerHTML = build;
+  //  });
 
   const results = [
     {
