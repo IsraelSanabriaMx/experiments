@@ -17,8 +17,20 @@
   height: auto;
 }
 
+.product {
+  border: 1px solid black;
+  padding: 5px;
+  margin: 5px;
+}
+
 .card_image {
   display: block;
   width: 300px;
+  height: auto;
+}
+
+.card_image_small {
+  display: block;
+  width: 30px;
   height: auto;
 }
